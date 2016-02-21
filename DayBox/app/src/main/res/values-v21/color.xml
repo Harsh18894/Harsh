@@ -20,7 +20,7 @@
     <color name="green_light">#b0d683</color>
     <color name="snack_bar_color">#f18080</color>
 
-    <color name="btn_logout_pressed">#ed6064</color>
+    <color name="btn_logout_pressed">#f44336</color>
     <color name="btn_logout">#ed6064</color>
 
     <color name="black_steel">#080706</color>

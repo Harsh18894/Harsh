@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,10 +12,21 @@
         android:id="@+id/listDashboard"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/dashboard_toolbar"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:padding="5dp">
 
     </ListView>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/btn_logout"
+        android:text="@string/logout"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

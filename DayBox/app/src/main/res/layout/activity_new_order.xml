@@ -13,14 +13,6 @@
 
     </ListView>
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#f44336"
-        android:text="@string/logout"
-        android:textColor="@color/white"
-        android:textStyle="bold"/>
+
 
 </RelativeLayout>

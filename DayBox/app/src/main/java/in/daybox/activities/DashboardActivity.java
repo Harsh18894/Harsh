@@ -1,6 +1,7 @@
 package in.daybox.activities;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -49,6 +50,13 @@ public class DashboardActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.dashboard_toolbar);
         setSupportActionBar(toolbar);
 
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            btnLogout.setBackgroundResource(R.drawable.ripple_red);
+        }
+
+/*
+
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,9 +66,11 @@ public class DashboardActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             mMaterialDialog.dismiss();
-               /*             LogoutAsyncTask logoutAsyncTask = new LogoutAsyncTask(getApplicationContext());
+               */
+/*             LogoutAsyncTask logoutAsyncTask = new LogoutAsyncTask(getApplicationContext());
                             logoutAsyncTask.execute();
-               */         }
+               *//*
+         }
                     });
 
                     mMaterialDialog.setNegativeButton("CANCEL", new View.OnClickListener() {
@@ -81,6 +91,7 @@ public class DashboardActivity extends AppCompatActivity {
                 }
             }
         });
+*/
 
 
         /*DashboardListAdapter dashboardListAdapter = new DashboardListAdapter(getApplicationContext(), getData());
