@@ -1,6 +1,7 @@
 package in.daybox.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -151,7 +152,9 @@ public class DashboardActivity extends AppCompatActivity {
                         break;
 
                     case 2:
-                        Toast.makeText(getApplicationContext(), "No Customer Care Available", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Intent.ACTION_DIAL);
+                        intent.setData(Uri.parse("tel:9876543210"));
+                        startActivity(intent);
                         break;
                 }
             }
