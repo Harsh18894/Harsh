@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/imgListIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/txtListDashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imgListIcon"
+        android:text="New Order"
+        style="@style/AppTheme.StyledText.Bold"
+        android:gravity="left"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:paddingBottom="4dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/txtListDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtListDashboard"
+        android:layout_toRightOf="@+id/imgListIcon"
+        style="@style/AppTheme.StyledText"
+        android:text="Place a New Order"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="left"
+        android:paddingBottom="4dp"
+        android:textColor="@color/black"
+        android:alpha="0.5"
+        android:textSize="14sp"/>
+</RelativeLayout>

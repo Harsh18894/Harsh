@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary">#8bc34a</color>
+    <color name="primary_dark">#689f38</color>
+    <color name="primary_darker">#649130</color>
+    <color name="accent">#ff5252</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="grey">#7e7e7e</color>
+    <color name="button_bg_dark">#71a436</color>
+    <color name="button_bg">#8bc43a</color>
+    <color name="hide_text_color">#808080</color>
+    <color name="forgot_password_text_color">#404040</color>
+    <color name="dialog_button_bg_dark">#848484</color>
+    <color name="dialog_button_bg">#808080</color>
+    <color name="strip_color">#ff5252</color>
+    <color name="tab_dark">#649130</color>
+
+    <color name="green_light">#b0d683</color>
+    <color name="snack_bar_color">#f18080</color>
+
+    <color name="btn_logout_pressed">#ed6064</color>
+    <color name="btn_logout">#ed6064</color>
+
+    <color name="black_steel">#080706</color>
+    <color name="paper">#eff9f8</color>
+    <color name="gold_leaf">#55676A</color>
+    <color name="silver">#303F42</color>
+
+
+    <color name="action_light">#8bc34a</color>
+
+    <color name="dirtywhite">#E3E3E3</color>
+    <color name="dialog_header_bg">#e6e6e6</color>
+
+    <color name="colorPrimary">#8bc34a</color>
+    <color name="colorPrimaryDark">#689f38</color>
+    <color name="textColorPrimary">#000000</color>
+    <color name="windowBackground">#000000</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="colorAccent">#efefef</color>
+    <color name="rippleColor">#ffffff</color>
+    <color name="splash_bg">#b0d683</color>
+
+</resources>
