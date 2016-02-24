@@ -5,7 +5,7 @@
     <string name="success">Success</string>
     <string name="profile_updated">Your profile has been successfully updated !!</string>
     <string name="server_key">AIzaSyBys-tUxhBtPbD0fV78llvzDrSEG_fQ66g</string>
-    <string name="phone">Phone Number</string>
+    <string name="mobile">Phone Number</string>
     <string name="phoneorEmail">Phone Number / Email</string>
     <string name="referalcode">Referal Code (Optional)</string>
     <string name="register">Sign Up</string>

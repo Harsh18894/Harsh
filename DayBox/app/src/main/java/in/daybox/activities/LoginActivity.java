@@ -20,7 +20,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -107,10 +106,10 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 LoginDTO loginDTO = new LoginDTO();
-                loginDTO.setPhone(etPhoneNumber.getText().toString().trim());
+                loginDTO.setMobile(etPhoneNumber.getText().toString().trim());
                 loginDTO.setPassword(etPassword.getText().toString().trim());
                 if (NetworkCheck.isNetworkAvailable(LoginActivity.this)){
-                    if (loginDTO.getPhone().length() == 10){
+                    if (loginDTO.getMobile().length() == 10){
                         if (loginDTO.getPassword().length() != 0){
                             LoginAsyncTask loginAsyncTask = new LoginAsyncTask(LoginActivity.this, loginDTO);
                             loginAsyncTask.execute();

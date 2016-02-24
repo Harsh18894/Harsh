@@ -2,6 +2,7 @@
 package in.daybox.asynctask;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -29,6 +30,8 @@ import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import in.daybox.R;
+import in.daybox.activities.DashboardActivity;
+import in.daybox.activities.NewOrderActivity;
 import in.daybox.constants.NetworkConstants;
 import in.daybox.dto.ErrorDTO;
 import in.daybox.dto.LoginDTO;
@@ -76,7 +79,7 @@ public class LoginAsyncTask extends AsyncTask<Void, Void, Void> implements Netwo
     protected Void doInBackground(Void... params) {
         List<NameValuePair> list = new ArrayList<NameValuePair>();
 
-        list.add(new BasicNameValuePair("mobile", loginDTO.getPhone()));
+        list.add(new BasicNameValuePair("mobile", loginDTO.getMobile()));
         list.add(new BasicNameValuePair("password", loginDTO.getPassword()));
 
         try {
@@ -145,10 +148,10 @@ public class LoginAsyncTask extends AsyncTask<Void, Void, Void> implements Netwo
 
                         Bundle bundle = new Bundle();
                         bundle.putString("loginDTO", new Gson().toJson(loginDTO));
-/*
-                        Intent intent = new Intent(context, ConfirmOTPActivity.class);
+
+                        Intent intent = new Intent(context, DashboardActivity.class);
                         intent.putExtras(bundle);
-                        context.startActivity(intent);*/
+                        context.startActivity(intent);
                     }else if(jsonObject.has("error")){
                         ErrorDTO errorDTO = new Gson().fromJson(jsonObject.getString("error"), ErrorDTO.class);
 

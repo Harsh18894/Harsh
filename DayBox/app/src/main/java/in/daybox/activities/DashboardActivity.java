@@ -1,9 +1,11 @@
 package in.daybox.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +40,8 @@ public class DashboardActivity extends AppCompatActivity {
     @InjectView(R.id.btnLogout)
     Button btnLogout;
     //private Context context;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor sharedEditor;
 
 
     @Override
@@ -56,18 +62,25 @@ public class DashboardActivity extends AppCompatActivity {
             btnLogout.setBackgroundResource(R.drawable.ripple_red);
         }
 
-/*
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (NetworkCheck.isNetworkAvailable(getApplicationContext())) {
-                    final MaterialDialog mMaterialDialog = new MaterialDialog(getApplicationContext()).setTitle("Logout").setMessage("Are you sure you want to logout ?");
-                    mMaterialDialog.setPositiveButton("Logout", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            mMaterialDialog.dismiss();
-               */
+                    sharedEditor.putBoolean("isLogin", false);
+                    Gson gson = new Gson();
+                    String json = gson.toJson(null);
+                    sharedEditor.putString("session", json);
+                    if (sharedEditor.commit()) {
+                        Intent intent = new Intent(DashboardActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Snackbar.make(v, "Logout not successfull", Snackbar.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+
 /*             LogoutAsyncTask logoutAsyncTask = new LogoutAsyncTask(getApplicationContext());
                             logoutAsyncTask.execute();
                *//*
@@ -110,19 +123,19 @@ public class DashboardActivity extends AppCompatActivity {
         DashboardListItemDTO dashboardListItemDTO = new DashboardListItemDTO();
         dashboardListItemDTO.setTitle(getResources().getString(R.string.NewOrder));
         dashboardListItemDTO.setDesc(getResources().getString(R.string.NewOrderDesc));
-        dashboardListItemDTO.setImage(R.mipmap.ic_launcher);
+        dashboardListItemDTO.setImage(R.mipmap.new_orders);
 
         dashboardListItemDTOs.add(dashboardListItemDTO);
         dashboardListItemDTO = new DashboardListItemDTO();
         dashboardListItemDTO.setTitle(getResources().getString(R.string.PreviousOrder));
         dashboardListItemDTO.setDesc(getResources().getString(R.string.PreviousOrderDesc));
-        dashboardListItemDTO.setImage(R.mipmap.ic_launcher);
+        dashboardListItemDTO.setImage(R.mipmap.previous_orders);
 
         dashboardListItemDTOs.add(dashboardListItemDTO);
         dashboardListItemDTO = new DashboardListItemDTO();
         dashboardListItemDTO.setTitle(getResources().getString(R.string.CustomerCare));
         dashboardListItemDTO.setDesc(getResources().getString(R.string.CustomerCareDesc));
-        dashboardListItemDTO.setImage(R.mipmap.ic_launcher);
+        dashboardListItemDTO.setImage(R.mipmap.customer_care);
 
         dashboardListItemDTOs.add(dashboardListItemDTO);
 
@@ -160,7 +173,7 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
     }
-
+}
     /*private List<DashboardListItemDTO> getData() {
         List<DashboardListItemDTO> dashboardListItemDTOs = new ArrayList<>();
 
@@ -183,4 +196,3 @@ public class DashboardActivity extends AppCompatActivity {
 
         return dashboardListItemDTOs;
     }*/
-}

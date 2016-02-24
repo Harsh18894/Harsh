@@ -21,7 +21,7 @@
         android:drawableLeft="@mipmap/abc_alpha_et_phone"
         android:drawablePadding="15dp"
         android:background="@drawable/abc_alpha_top_et_login_background"
-        android:hint="@string/phone"
+        android:hint="@string/mobile"
         android:inputType="number"
         android:padding="10dip"
         android:singleLine="true"

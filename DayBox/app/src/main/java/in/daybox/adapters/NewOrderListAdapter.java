@@ -19,6 +19,7 @@ public class NewOrderListAdapter extends ArrayAdapter<String> {
     private String[] name;
     private Activity context;
 
+
     public NewOrderListAdapter(Activity context, String[] id, String[] name){
         super(context, R.layout.activity_new_order_single_item_list, id);
         this.context = context;

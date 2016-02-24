@@ -2,8 +2,13 @@ package in.daybox.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -18,6 +23,7 @@ import butterknife.InjectView;
 import in.daybox.R;
 import in.daybox.adapters.NewOrderListAdapter;
 import in.daybox.constants.NetworkConstants;
+import in.daybox.ui.TypefaceSpan;
 import in.daybox.volley.NewOrderItemParse;
 
 /**
@@ -34,6 +40,17 @@ public class NewOrderActivity extends AppCompatActivity implements NetworkConsta
         setContentView(R.layout.activity_new_order);
         listView = (ListView) findViewById(R.id.listNewOrders);
         sendRequest();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.new_order_toolbar);
+        setSupportActionBar(toolbar);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
+        SpannableString s = new SpannableString("Place a New Order");
+        s.setSpan(new TypefaceSpan(this, "LatoLatin-Regular.ttf"), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ((TextView) toolbar.findViewById(R.id.toolbarTitle)).setText(s);
+
+        getSupportActionBar().setTitle("");
+
+
     }
 
     private void sendRequest(){
