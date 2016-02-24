@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NetworkUse</string>
+    <string name="button">Show Location</string>
+</resources>
