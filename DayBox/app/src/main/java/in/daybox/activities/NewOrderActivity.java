@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -19,6 +20,7 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import in.daybox.R;
 import in.daybox.adapters.NewOrderListAdapter;
@@ -31,39 +33,38 @@ import in.daybox.volley.NewOrderItemParse;
  */
 public class NewOrderActivity extends AppCompatActivity implements NetworkConstants{
 
-    private ListView listView;
-
+    @InjectView(R.id.listNewOrders)
+    ListView listView;
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_order);
-        listView = (ListView) findViewById(R.id.listNewOrders);
-        sendRequest();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.new_order_toolbar);
+        ButterKnife.inject(this);
+
         setSupportActionBar(toolbar);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
         SpannableString s = new SpannableString("Place a New Order");
         s.setSpan(new TypefaceSpan(this, "LatoLatin-Regular.ttf"), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         ((TextView) toolbar.findViewById(R.id.toolbarTitle)).setText(s);
-
         getSupportActionBar().setTitle("");
-
-
+        sendRequest();
     }
 
     private void sendRequest(){
-        StringRequest stringRequest = new StringRequest(NEW_ORDER_URL, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, GET_NETWORK_IP+NEW_ORDER_URL, new Response.Listener<String>() {
             @Override
-            public void onResponse(String response) {
-                showJSON(response);
+            public void onResponse(String response) {showJSON(response);
             }
         },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(NewOrderActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                        error.printStackTrace();
                     }
                 });
 
@@ -72,6 +73,7 @@ public class NewOrderActivity extends AppCompatActivity implements NetworkConsta
     }
 
     private void showJSON(String json){
+
         NewOrderItemParse newOrderItemParse = new NewOrderItemParse(json);
         newOrderItemParse.parseJSON();
         NewOrderListAdapter newOrderListAdapter = new NewOrderListAdapter(this, NewOrderItemParse.id, NewOrderItemParse.name);

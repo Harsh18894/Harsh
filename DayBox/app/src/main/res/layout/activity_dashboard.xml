@@ -6,7 +6,7 @@
 
     <include
         android:id="@+id/dashboard_toolbar"
-        layout="@layout/toolbar_dashboard"/>
+        layout="@layout/toolbar_dashboard" />
 
     <ListView
         android:id="@+id/listDashboard"
@@ -27,6 +27,6 @@
         android:background="@color/btn_logout"
         android:text="@string/logout"
         android:textColor="@color/white"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
 </RelativeLayout>

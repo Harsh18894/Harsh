@@ -85,6 +85,19 @@ public class LoginActivity extends ActionBarActivity {
         }
 
 
+        Bundle bundle = getIntent().getExtras();
+
+        if(bundle != null){
+            if(bundle.containsKey("logout")){
+                if(bundle.getString("logout").equals("Logout")){
+                    MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
+                    messageCustomDialogDTO.setMessage("Logged out !!!");
+                    messageCustomDialogDTO.setButton("OK");
+                    SnackBar.show(LoginActivity.this, messageCustomDialogDTO);
+                }
+            }
+        }
+
         txtShowPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

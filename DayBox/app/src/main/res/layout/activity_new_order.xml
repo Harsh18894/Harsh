@@ -4,14 +4,14 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/new_order_toolbar"
+        android:id="@+id/toolbar"
         layout="@layout/toolbar_center"/>
 
     <ListView
         android:id="@+id/listNewOrders"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/new_order_toolbar"
+        android:layout_below="@+id/toolbar"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:padding="5dp">

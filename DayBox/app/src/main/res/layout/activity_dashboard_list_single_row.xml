@@ -8,39 +8,39 @@
         android:id="@+id/imgListIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/txtListDashboard"
+        style="@style/AppTheme.StyledText.Bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/imgListIcon"
-        android:text="New Order"
-        style="@style/AppTheme.StyledText.Bold"
-        android:gravity="left"
-        android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/imgListIcon"
+        android:gravity="left"
         android:paddingBottom="4dp"
+        android:text="New Order"
         android:textColor="@color/black"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/txtListDesc"
+        style="@style/AppTheme.StyledText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtListDashboard"
-        android:layout_toRightOf="@+id/imgListIcon"
-        style="@style/AppTheme.StyledText"
-        android:text="Place a New Order"
-        android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/imgListIcon"
+        android:alpha="0.5"
         android:gravity="left"
         android:paddingBottom="4dp"
+        android:text="Place a New Order"
         android:textColor="@color/black"
-        android:alpha="0.5"
-        android:textSize="14sp"/>
+        android:textSize="14sp" />
 </RelativeLayout>

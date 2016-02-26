@@ -1,11 +1,9 @@
-
 package in.daybox.asynctask;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
@@ -31,7 +29,6 @@ import java.util.List;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import in.daybox.R;
 import in.daybox.activities.DashboardActivity;
-import in.daybox.activities.NewOrderActivity;
 import in.daybox.constants.NetworkConstants;
 import in.daybox.dto.ErrorDTO;
 import in.daybox.dto.LoginDTO;
@@ -58,7 +55,7 @@ public class LoginAsyncTask extends AsyncTask<Void, Void, Void> implements Netwo
     private SharedPreferences.Editor sharedEditor;
     private SharedPreferences sharedPreferences;
 
-    public LoginAsyncTask(Context context, LoginDTO loginDTO){
+    public LoginAsyncTask(Context context, LoginDTO loginDTO) {
         this.context = context;
         this.loginDTO = loginDTO;
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
@@ -121,14 +118,14 @@ public class LoginAsyncTask extends AsyncTask<Void, Void, Void> implements Netwo
                     messageCustomDialogDTO.setMessage(context.getResources().getString(R.string.login_activity_no_internet));
                     messageCustomDialogDTO.setContext(context);
                     SnackBar.show(context, messageCustomDialogDTO);
-                } else if(exceptionToBeThrown instanceof UnknownHostException){
+                } else if (exceptionToBeThrown instanceof UnknownHostException) {
                     MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
                     messageCustomDialogDTO.setTitle(context.getResources().getString(R.string.oops));
                     messageCustomDialogDTO.setButton(context.getResources().getString(R.string.ok));
                     messageCustomDialogDTO.setMessage(context.getResources().getString(R.string.login_activity_no_internet));
                     messageCustomDialogDTO.setContext(context);
                     SnackBar.show(context, messageCustomDialogDTO);
-                }else {
+                } else {
                     MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
                     messageCustomDialogDTO.setTitle(context.getResources().getString(R.string.oops));
                     messageCustomDialogDTO.setMessage(context.getResources().getString(R.string.error_message));
@@ -140,19 +137,20 @@ public class LoginAsyncTask extends AsyncTask<Void, Void, Void> implements Netwo
             } else {
                 JSONObject jsonObject = new JSONObject(result);
                 if (statusCode >= 200 && statusCode <= 299) {
-                    if(jsonObject.has("response")) {
-                       /* SellerDTO sellerDTO = new Gson().fromJson(jsonObject.getString("response"), SellerDTO.class);
-                        sessionDTO.setSellerDTO(sellerDTO);
-                       */ sharedEditor.putString("session", new Gson().toJson(sessionDTO));
+                    if (jsonObject.has("response")) {
+                        jsonObject = jsonObject.getJSONObject("response");
+                        sessionDTO = new Gson().fromJson(jsonObject.toString(), SessionDTO.class);
+
+                        sharedEditor.putString("session", new Gson().toJson(sessionDTO));
+                        sharedEditor.putBoolean("isLogin", true);
                         sharedEditor.commit();
 
-                        Bundle bundle = new Bundle();
-                        bundle.putString("loginDTO", new Gson().toJson(loginDTO));
 
                         Intent intent = new Intent(context, DashboardActivity.class);
-                        intent.putExtras(bundle);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
                         context.startActivity(intent);
-                    }else if(jsonObject.has("error")){
+                    } else if (jsonObject.has("error")) {
                         ErrorDTO errorDTO = new Gson().fromJson(jsonObject.getString("error"), ErrorDTO.class);
 
                         MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
@@ -161,7 +159,7 @@ public class LoginAsyncTask extends AsyncTask<Void, Void, Void> implements Netwo
                         messageCustomDialogDTO.setMessage(errorDTO.getMessage());
                         messageCustomDialogDTO.setContext(context);
                         SnackBar.show(context, messageCustomDialogDTO);
-                    }else{
+                    } else {
                         MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
                         messageCustomDialogDTO.setTitle(context.getResources().getString(R.string.oops));
                         messageCustomDialogDTO.setButton(context.getResources().getString(R.string.ok));
@@ -180,7 +178,7 @@ public class LoginAsyncTask extends AsyncTask<Void, Void, Void> implements Netwo
                     SnackBar.show(context, messageCustomDialogDTO);
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             MessageCustomDialogDTO messageCustomDialogDTO = new MessageCustomDialogDTO();
             messageCustomDialogDTO.setTitle(context.getResources().getString(R.string.oops));

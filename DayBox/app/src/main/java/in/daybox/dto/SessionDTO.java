@@ -4,22 +4,40 @@ package in.daybox.dto;
  * Created by Dell on 2/13/2016.
  */
 public class SessionDTO {
-    private String phone;
-    private String password;
+    private String mobile;
+    private String id;
+    private String accessTokenId;
+    private String name;
 
-    public String getPhone() {
-        return phone;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
-    public String getPassword() {
-        return password;
+    public String getId() {
+        return id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getAccessTokenId() {
+        return accessTokenId;
+    }
+
+    public void setAccessTokenId(String accessTokenId) {
+        this.accessTokenId = accessTokenId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
