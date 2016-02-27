@@ -1,12 +1,18 @@
 package in.daybox.adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
+
+import com.neopixl.pixlui.components.textview.TextView;
 
 import java.util.HashMap;
 import java.util.List;
+
+import in.daybox.R;
 
 /**
  * Created by Dell on 2/25/2016.
@@ -62,16 +68,41 @@ public class PreviousOrderListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        return null;
+        String headerTitle = (String) getGroup(groupPosition);
+        if (convertView == null){
+            LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.activity_previous_order_list_group, null);
+        }
+        TextView txtPreviousOrderList = (TextView) convertView.findViewById(R.id.txtPreviousOrderList);
+        txtPreviousOrderList.setText(headerTitle);
+        return convertView;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        return null;
+
+        final String childText = (String) getChild(groupPosition, childPosition);
+
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) this.context
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.activity_previous_order_single_list_item, null);
+        }
+
+        TextView txtOrder = (TextView) convertView.findViewById(R.id.txtOrder);
+
+        TextView txtOrderAmount = (TextView) convertView.findViewById(R.id.txtOrderAmount);
+
+        Button btnIssue = (Button) convertView.findViewById(R.id.btnIssue);
+
+        txtOrder.setText(childText);
+        txtOrderAmount.setText(childText);
+        btnIssue.setText("Report Issue");
+        return convertView;
     }
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return false;
+        return true;
     }
 }

@@ -24,7 +24,7 @@ public class NewOrderItemParse {
     public static String[] id;
     public static String[] name;
 
-    public static final String JSON_ARRAY = "result";
+    public static final String JSON_ARRAY = "response";
     public static final String KEY_ID = "id";
     public static final String KEY_NAME = "name";
 

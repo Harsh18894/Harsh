@@ -14,9 +14,21 @@
         android:layout_below="@+id/toolbar"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:choiceMode="multipleChoice">
 
     </ListView>
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:text="@string/order_proceed"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
 
 
 </RelativeLayout>

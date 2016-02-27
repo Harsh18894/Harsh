@@ -122,74 +122,22 @@ public class DashboardActivity extends AppCompatActivity {
         DashboardListAdapter dashboardListAdapter = new DashboardListAdapter(getApplicationContext(), dashboardListItemDTOs);
 
         DashboardListItemDTO dashboardListItemDTO = new DashboardListItemDTO();
-        dashboardListItemDTO.setTitle(
-
-                getResources()
-
-                        .
-
-                                getString(R.string.NewOrder)
-
-        );
-        dashboardListItemDTO.setDesc(
-
-                getResources()
-
-                        .
-
-                                getString(R.string.NewOrderDesc)
-
-        );
+        dashboardListItemDTO.setTitle(getResources().getString(R.string.NewOrder));
+        dashboardListItemDTO.setDesc(getResources().getString(R.string.NewOrderDesc));
         dashboardListItemDTO.setImage(R.mipmap.new_orders);
 
         dashboardListItemDTOs.add(dashboardListItemDTO);
-        dashboardListItemDTO = new
-
-                DashboardListItemDTO();
-
-        dashboardListItemDTO.setTitle(
-
-                getResources()
-
-                        .
-
-                                getString(R.string.PreviousOrder)
-
-        );
-        dashboardListItemDTO.setDesc(
-
-                getResources()
-
-                        .
-
-                                getString(R.string.PreviousOrderDesc)
-
-        );
+        dashboardListItemDTO = new DashboardListItemDTO();
+        dashboardListItemDTO.setTitle(getResources().getString(R.string.PreviousOrder));
+        dashboardListItemDTO.setDesc(getResources().getString(R.string.PreviousOrderDesc));
         dashboardListItemDTO.setImage(R.mipmap.previous_orders);
 
         dashboardListItemDTOs.add(dashboardListItemDTO);
         dashboardListItemDTO = new
-
                 DashboardListItemDTO();
 
-        dashboardListItemDTO.setTitle(
-
-                getResources()
-
-                        .
-
-                                getString(R.string.CustomerCare)
-
-        );
-        dashboardListItemDTO.setDesc(
-
-                getResources()
-
-                        .
-
-                                getString(R.string.CustomerCareDesc)
-
-        );
+        dashboardListItemDTO.setTitle(getResources().getString(R.string.CustomerCare));
+        dashboardListItemDTO.setDesc(getResources().getString(R.string.CustomerCareDesc));
         dashboardListItemDTO.setImage(R.mipmap.customer_care);
 
         dashboardListItemDTOs.add(dashboardListItemDTO);
@@ -223,7 +171,7 @@ public class DashboardActivity extends AppCompatActivity {
 
                                                          case 2:
                                                              Intent intent = new Intent(Intent.ACTION_DIAL);
-                                                             intent.setData(Uri.parse("tel:9876543210"));
+                                                             intent.setData(Uri.parse("tel:9619851835"));
                                                              startActivity(intent);
                                                              break;
                                                      }

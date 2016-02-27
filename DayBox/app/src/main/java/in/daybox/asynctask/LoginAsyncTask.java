@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -139,6 +140,9 @@ public class LoginAsyncTask extends AsyncTask<Void, Void, Void> implements Netwo
                 if (statusCode >= 200 && statusCode <= 299) {
                     if (jsonObject.has("response")) {
                         jsonObject = jsonObject.getJSONObject("response");
+
+                        Log.d("LOG", jsonObject.toString());
+                        
                         sessionDTO = new Gson().fromJson(jsonObject.toString(), SessionDTO.class);
 
                         sharedEditor.putString("session", new Gson().toJson(sessionDTO));
