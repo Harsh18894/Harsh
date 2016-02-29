@@ -5,17 +5,15 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/previous_order_toolbar"
-        layout="@layout/toolbar_center"/>
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_center" />
 
-    <ExpandableListView
-        android:id="@+id/listPreviousOrders"
-        android:layout_width="fill_parent"
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
-
-    </ExpandableListView>
-
+        app:mcv_selectionColor="@color/colorPrimary"
+        app:mcv_showOtherDates="all" />
 </LinearLayout>

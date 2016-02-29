@@ -106,17 +106,17 @@
         <item name="unselected_height">4dp</item>
     </style>
 
-    <style name="AppTheme.StyledText">
+   <!-- <style name="AppTheme.StyledText">
         <item name="typeface">roboto_light.ttf</item>
     </style>
-
-    <style name="AppTheme.StyledText.Bold">
+-->
+   <!-- <style name="AppTheme.StyledText.Bold">
         <item name="typeface">roboto_bold.ttf</item>
     </style>
 
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">sans-serif-light</item>
-    </style>
+    </style>-->
 
     <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
         <item name="colorControlNormal">@color/black</item>

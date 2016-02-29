@@ -11,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        style="@style/AppTheme.StyledText.Bold"
         android:padding="5dip"
         android:layout_marginLeft="10dip"
         android:layout_marginTop="10dip"
@@ -23,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Order in the List"
-        style="@style/AppTheme.StyledText"
         android:textColor="@color/black_steel"
         android:textSize="18sp"
         android:padding="5dip"
@@ -33,7 +31,7 @@
         android:clickable="true"/>
 
 
-    <!--<RelativeLayout
+   <!-- <RelativeLayout
         android:id="@+id/rlOrderAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -49,8 +47,8 @@
         android:layout_marginBottom="10dip" />
 
     </RelativeLayout>
-
-   <RelativeLayout
+-->
+  <!-- <RelativeLayout
         android:id="@+id/rlItemUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -62,7 +60,6 @@
             android:prompt="@string/oops"/>
 
     </RelativeLayout>
-&ndash;&gt;
     <com.neopixl.pixlui.components.textview.TextView
         android:id="@+id/txtItemUnit"
         android:layout_width="wrap_content"

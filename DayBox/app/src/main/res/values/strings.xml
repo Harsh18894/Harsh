@@ -27,6 +27,9 @@
     <string name="PreviousOrderDesc">View your previous orders.</string>
     <string name="CustomerCare">Customer Care</string>
     <string name="CustomerCareDesc">Allow us to help you.</string>
+    <string name="CurrentOrder">Current Order</string>
+    <string name="CurrentOrderDesc">Receiving / Return.</string>
+
     
     <string name="send_money">SEND MONEY</string>
     <string name="request_money">REQUEST MONEY</string>

@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:text="Onion"
         android:layout_gravity="center"
-        style="@style/AppTheme.StyledText"
         android:textSize="18sp"
         android:layout_marginLeft="15dp"
         android:padding="5dp"
@@ -22,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:text="20Kg"
-        style="@style/AppTheme.StyledText"
         android:textSize="18sp"
         android:layout_gravity="center"
         android:textColor="@color/black_steel"/>

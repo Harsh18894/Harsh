@@ -1,18 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="in.daybox">
+    package="com.daybox" >
+
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
+        android:name=".global.GlobalData"
+        tools:replace="android:icon"
         android:allowBackup="true"
-        android:icon="@mipmap/logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/MyMaterialTheme"
-        tools:replace="android:icon">
+        android:theme="@style/MyMaterialTheme" >
+
 
         <activity
             android:name=".activities.SplashActivity"
@@ -27,7 +30,9 @@
         <activity android:name=".activities.LoadURLActivity"/>
         <activity android:name=".activities.DashboardActivity"/>
         <activity android:name=".activities.NewOrderActivity"/>
-
+        <activity android:name=".activities.PlaceOrderActivity"/>
+        <activity android:name=".activities.PreviousOrdersActivity"/>
+        <activity android:name=".activities.PreviousOrdersByDateActivity"/>
 
     </application>
 
